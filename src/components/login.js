@@ -15,15 +15,21 @@ class Login extends Component {
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+  }
+
   render(){
     const { name, email } = this.state
     return (
       <div>
         <form>
           <label>Name</label>
-          <input onChange={this.handleChange} id="name" value={name} />
+          <input onChange={this.handleChange} id="name" value={name} name="name"/>
           <label>Email</label>
-          <input onChange={this.handleChange} id="email" value={email} />
+          <input onChange={this.handleChange} id="email" value={email} name="email"/>
+          <button>Login</button>
         </form>
       </div>
     )
