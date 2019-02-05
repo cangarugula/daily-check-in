@@ -1,0 +1,39 @@
+{
+  "name": "you-matter-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "./node_modules/webpack/bin/webpack.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "npm run webpack -- --watch --mode=development & DATABASE_URL=postgres://localhost/you_matter nodemon server/index.js --ignore src/ --ignore dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "^7.8.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "sequelize": "^4.42.0",
+    "webpack": "^4.29.1",
+    "webpack-cli": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
+  }
+}
