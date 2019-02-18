@@ -23,17 +23,17 @@ const CheckIn = db.define('checkIn', {
   }
 })
 
-const syncAndSeed = () => {
-  return db.sync({force: true})
-    .then(()=> {
-      console.log('synced')
-      User.create({name: "Cang Truong", email: "cang@email.com"})
-      CheckIn.create({moodRating: 8, highlight: "I made a delicious dinner today", learnings: "You are not responsible for someone else's emotional health"})
-    })
-    .then(()=> {
-      console.log('seeded')
-    })
-    .catch(err => console.log(err))
+User.hasMany(CheckIn)
+
+const syncAndSeed = async () => {
+  try{
+    await db.sync({force: true})
+    console.log('synced')
+    const cang = await User.create({name: "Cang Truong", email: "cang@email.com"})
+    await CheckIn.create({moodRating: 8, highlight: "I made a delicious dinner today", learnings: "You are not responsible for someone else's emotional health", userId: cang.id})
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 module.exports = {
