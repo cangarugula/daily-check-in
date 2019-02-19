@@ -1,16 +1,16 @@
 import React, { Component } from "react"
 import { Route } from "react-router-dom"
-import Home from "./home"
-import Emotion from './emotion'
-
-const emotions = ["Sad", "Happy", "Anxious", "Angry", "Content" ]
 
 class App extends Component {
   render(){
     return (
       <div>
-        <Route exact path="/" render={() => <Home emotions={emotions} />}></Route>
-        <Route path="/:emotion" render={({match, history}) => <Emotion match={match} history={history}/>}></Route>
+        <div>
+          <Route exact path="/" ></Route>
+        </div>
+        <div>
+          <h1 className="title" >My App</h1>
+        </div>
       </div>
     )
   }

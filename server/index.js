@@ -8,6 +8,8 @@ const PORT = "3000" || process.env.PORT
 
 app.use("/dist", express.static(path.join(__dirname, "..", "dist")))
 
+app.use('/public', express.static(path.join(__dirname, "..", "public")))
+
 app.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "public","index.html"))
 })
@@ -15,7 +17,6 @@ app.get("/", (req, res, next) => {
 
 app.get('/api/entries', async (req, res, next) => {
   try {
-    console.log('ehllooo')
     let entries = await CheckIn.findAll()
     res.send(entries)
   } catch(err){
